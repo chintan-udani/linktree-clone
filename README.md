@@ -1,6 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nxt Lnk
+
+**Custom bio links for creatives who love coding. Made this first to use for my own weblinks**
+
+Pull requests are always welcome. In case you want inspiration or new features on what to add, check out the issues for feature requests.
+
+**Table of Contents**
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Usage](#usage)
+- [Quick Start](#quick-start)
+- [Manual Setup](#manual-setup)
+- [Getting Started](#getting-started)
+- [Images](#images)
+- [Update Bio](#update-bio)
+  - [Add/Update](#update-bio)
+  - [Enable/Disable](#update-bio)
+  - [Featured Banner](#update-bio)
+- [Update Links](#update-links)
+  - [Enable/Disable](#update-links)
+  - [Add/Update](#update-links)
+- [Frontend](#frontend)
+- [SEO](#seo)
+- [Custom Domain](#custom-domain)
+- [Favicon](#favicon)
+
+## Usage
+
+`nxt-lnk` template used to create your custom bio link and self-host on Vercel or Netlify using your own domain. Need little understanding of code :) ☕
+
+Usually, you don't need to worry a lot about coding if you're just updating information in `BioData.js` and `LinkData.js`. To deep dive know more [Next.js](https://nextjs.org/docs) and [React](https://reactjs.org/docs/getting-started.html) official documentaion.
+
+For customization used [styled components](https://styled-components.com/). If you want to customize styling you can [learn more here](https://styled-components.com/docs).
+
+**Template auto support dark-mode depending on system cofig.**
+
+## Quick Start
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https://github.com/realvjy/nxt-lnk) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/realvjy/nxt-lnk)
 
 ## Getting Started
+
+Use any editor to work on editing. I use [vscode](https://code.visualstudio.com/)
 
 First, run the development server:
 
@@ -8,31 +50,170 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+**Important files to edit or update info**
+`data/BioData.js` All basic info update here
+`data/LinksData.js` Contain all the links
+`Components/WebLinks.js` UI and stylesheet
+`Components/icons/index.js` Contain all SVG icon compo
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+You can start editing the page by modifying `data/BioData.js` and `data/LinksData.js`. The page auto-updates as you edit the file.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Images
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+All images stored inside `public` folder of the project.
 
-## Learn More
+## Update Bio
 
-To learn more about Next.js, take a look at the following resources:
+**Example from** `BioData.js` :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```jsx
+const bioData = [
+  {
+    name: "Chintan Udani",
+    username: "@chintan.ux",
+    url: "https://chintanudani.tech",
+    titleImg: true,
+    avatar: "/avatar.png",
+    nftAvatar: true,
+    description: "A short description/bio about you goes here",
+    subdesc:
+      "This is secondary description. If you do not need, you can remove it",
+    newProductUrl: "https://chintanudani.tech",
+    newProduct: true,
+  },
+];
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+export default bioData;
+```
 
-## Deploy on Vercel
+**Avatar**
+Just replace `avatar.png`. 200x200px will be good.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Hex/NFT avatar view**
+`nftAvatar: true` enable hex shape on avatar image.
+`nftAvatar: false` made it in oval shape.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Title**
+By default `titleImg: true` and it look for `title.svg`. Replace svg with logo **logo**. Make sure to use `title.svg` name.
+
+**Featured banner**
+`newProductUrl` and `newProduct` used for getting featured banner. You can replace the image `newproduct.png` with any design you like.
+
+`newProduct: true` show banner. Default is `true` make it false to hide.
+
+## Update Links
+
+**Example from** `LinksData.js` :
+
+```jsx
+const webLinks = [
+    // All social profile
+    
+    ...
+    ...
+
+    {
+        title: 'Instagram',
+        url: 'https://instagram.com/chintan.ux',
+        type: 'social',
+        icon: '/insta.svg',
+        on: true
+    }
+];
+export default webLinks;
+```
+
+**Enable/Disable Social Media**
+Find `type: social` and change `on:true|false`
+
+| Title         | on (default) |
+| ------------- | ------------ |
+| `Twitter`     | `true`       |
+| `Instagram`   | `true`       |
+| `Dribbble`    | `false`      |
+| `Medium`      | `false`      |
+| `Github`      | `true`       |
+| `Youtube`     | `false`      |
+| `Behance`     | `true`       |
+| `Figma`       | `true`       |
+| `Linkedin`    | `false`      |
+| `Mastodon`    | `false`      |
+| `Hive Social` | `false`      |
+| `Post.news`   | `false`      |
+
+Setting `on: true` show the social icon.
+The social media icons are arranged in a single row at the top of the page below description. If you want to use as list, chagne type to `type: 'other'`
+
+**Add new Social Media link**
+create a new block by copying this
+
+```jsx
+    {
+        title: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/chintan-udani/',
+        type: 'social',
+        icon: '/newiconname.svg',
+        on: true
+    }
+```
+
+Update all info and make sure to add a `newiconname.svg` file in [public](#images) folder.
+Then you have to add new section to frontend `components/WebLinks.js`
+
+## Frontend
+
+All frontend customization done inside `components/WebLinks.js`. If you wante to update and add new section just look this file and update according to your need.
+
+**Update section**
+
+Look for Section codes. Like if you want to change `install` type to `featured` Update the `type: 'featured'` in `LinkData.js` then update all `install` related code in `WebLinks.js` to `featured`
+
+```js
+// Collect all links filter by type - social, project, nft and other etc=
+// get data for install section
+const install = allLinks.filter((el) => {
+  return el.type === "install" && el.on
+});
+
+...
+...
+
+{/* Featured Section */ }
+<LinkSection>
+  <h3>{install[0].type}</h3>
+  {
+    install.map((i) => {
+      return (
+        <Link href={i.url} passHref key={i.title}>
+          <LinkBox>
+            <LinkTitle><img src={i.icon} style={{ filter: 'var(--img)' }} /> {i.title}</LinkTitle> <NewUp />
+          </LinkBox>
+        </Link>
+      )
+    })
+  }
+</LinkSection>
+{/* End Featured Section */ }
+```
+
+**Add New section**
+
+Add new section with specific `type` in `Linkdata.js`. Then copy `LinkSection` Code to create new section in `WebLinks.js` file. Make sure to create get data of that section as well.
+
+## SEO
+
+Already added `next-seo`. All you have to do is `update next-seo.config.js` file. Make sure to add direct link of `preview.jpg`file.
+
+## Custom Domain
+
+By default vercel give you a subdomain with your project name like - [nxtlnk.vercel.app](https:nxtlnk.vercel.app). But you can add own domain.
+
+Vercel/Netlify give you option to add any domain to the deployed project like [vjy.me/lnk](https://vjy.me/lnk) or [nxtlnk.xyz](https://nxtlnk.xyz). All you have to do is follow official [Vercel documentaion](https://vercel.com/docs/concepts/projects/domains/add-a-domain) or [Netlify Documentaion](https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/)
+
+## Favicon
+
+Create a `favicon.ico` file and place inside `public` folder. I use [favicon.io](https://favicon.io/favicon-converter/)
