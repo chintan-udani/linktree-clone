@@ -1,24 +1,22 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
     openGraph: {
-        type: 'website',
-        locale: 'en_IE',
-        title: 'next lnks by realvjy',
-        url: 'https://vjy.me',
-        description: 'Custom bio links for creatives who love coding. Made this first to use for my own weblinks vjy.me/lnk.',
-        locale: 'en_EN',
-        keywords: 'designer, product designer, illustrator, indian designer, vijay verma, realvjy, illlustrations, indian illustrator, ui designer india, sushi design system, zomato designer, 3dicons, uiprint, vijay realvjy, indian ui designer, design india, overlayz, nft art',
-        images: [
-            {
-                width: 1200,
-                height: 630,
-                url: `https://vjy.me/preview.jpg`,
-            },
-        ],
-        site_name: 'realvjy',
+        type: "website",
+        locale: "en_IE",
+        title: "nxtInk by Chintan",
+        url: "https://chintanudani.tech",
+        description: "Cutom Bio liks of Chintan Udani",
+        locale: "en_EN",
+        keywords: "designer, product designer, web developer, indian designer, Chintan Udani, chintan.ux, illlustrations, ui designer india, 3dicons, uiprint, Chintan, indian ui designer, design india, overlayz, nft art",
+        images: [{
+            width: 1200,
+            height: 630,
+        }, ],
+        site_name: "nxtink",
     },
     twitter: {
-        handle: '@realvjy',
-        site: 'vjy.me',
-        cardType: 'summary_large_image',
+        handle: "@chintan.ux",
+        site: "chintanudani.tech",
+        cardType: "summary_large_image",
     },
 };
